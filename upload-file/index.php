@@ -32,12 +32,15 @@ Upload your CSV file:<br>
 
 <pre>
 <?php
-if (isset($_FILES)) {
-    $check = true;
-    if ($_FILES['books_file']['type'] !== 'application/octet-stream') {
+
+$error = array();
+if (isset($_FILES) && isset($_POST['submit'])) {
+    $fileType = $_FILES['books_file']['type'];
+    $check = true;}else{$fileType = '';}
+    if ($fileType !== 'application/octet-stream') {
         $check = false;
     }else{
-        $_FILES['books_file']['type'] = '';
+        $check = true;
     }
     if ($check) {
         $date = date('Ymd_His');
@@ -45,9 +48,28 @@ if (isset($_FILES)) {
         // $path = realpath('./') . '/uploaded_files/' . $file_id; // . '_' . $_FILES['books_file']['name'];
         $path = realpath('./') . '\\uploaded_files\\' . $_FILES['books_file']['name'];
         // $sql = "INSERT INTO files (file, file_name) VALUES ('$file_id', '$_FILES["books_file"]["name"]')";
-        var_dump($path);
+       
         move_uploaded_file($_FILES['books_file']['tmp_name'], "$path");
     }
+
+?>
+<h2>files</h2>
+<?php
+
+
+$filename = 'uploaded_files/books.csv';
+if ($file_handle = fopen($filename, 'r')) {
+    // Read one line from the csv file, use comma as separator
+    while ($data = fgetcsv($file_handle)) {
+      
+        for($i=0; $i <= sizeof($data) - 1; $i++) {
+
+        
+        echo $data[$i] . '</br>';
+        }
+    }
+    // Close the file
+    fclose($file_handle);
 }
 ?>
 
