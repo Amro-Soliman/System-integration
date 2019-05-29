@@ -1,11 +1,13 @@
 <pre>
 <?php
 require_once('../vendor/autoload.php');
-\Stripe\Stripe::setApiKey('sk_test_5wPo7C0KoYD1BFsCgLjH45fH8745duyHn'); //YOUR_STRIPE_SECRET_KEY
+\Stripe\Stripe::setApiKey('sk_test_5wPo7C0KoYD1BFsCgLKYtC6400ENWd66D0'); //YOUR_STRIPE_SECRET_KEY
 
 // Get the token from the JS script
 $token = $_POST['stripeToken'];
-
+$charge = \Stripe\Charge::create(['amount' => 200000, 'currency' => 'usd', 'source' => $token]);
+echo $charge;
+\Stripe\Invoice::retrieve('ch_1EfMDwEX9zYTdRRzlZFftu8C');
 
 // This is a 20.00 charge in SEK.
 // Charging a Customer
