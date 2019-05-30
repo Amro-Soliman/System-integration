@@ -37,7 +37,7 @@
 
 }
 #payment-form {
-    height: 220px;
+    height: 255px;
     width: 327px;
     background-color: cadetblue;
     color: aliceblue;
