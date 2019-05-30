@@ -27,14 +27,13 @@
 }
 
 #upload {
-    height: 167px;
+    height: 180px;
     width: 495px;
     background-color: cadetblue;
     padding: 26px;
     position: absolute;
     top: 56px;
     left: 361px;
-
 }
 #payment-form {
     height: 255px;
@@ -44,7 +43,7 @@
     margin-left: 421px;
     padding: 26px;
     position: absolute;
-    top: 281px;
+    top: 300px;
     left: 188px;
 }
 
@@ -56,7 +55,7 @@
     padding: 12px;
     list-style: none;
     position: absolute;
-    top: 306px;
+    top: 321px;
     left: 281px;
 }
 #header {
@@ -65,7 +64,7 @@
     background-color: coral;
     color: aliceblue;
     position: absolute;
-    top: 266px;
+    top: 280px;
     left: 281px;
     line-height: 1.5em;
     padding: 2px;
